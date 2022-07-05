@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ctspod.backend.model.LoginRequest;
 import com.ctspod.backend.model.LoginResponse;
+import com.ctspod.backend.model.User;
+import com.ctspod.backend.service.MyUserDetailsService;
 import com.ctspod.backend.utils.JWTutility;
 
 @CrossOrigin(origins = "*")
@@ -26,10 +28,21 @@ public class RegistrationAndLoginController {
     @Autowired
     private AuthenticationManager authenticationManager;
     
+//    @Autowired
+//	private UserDetailsService userDetailsService;
+//   this doesnt show MyUserDetailsService funcs which are  from UserDetailsService interface
+
+    
     @Autowired
-	private UserDetailsService userDetailsService;
+	private MyUserDetailsService userDetailsService;
 	
-	
+    @PostMapping("/register")
+    public User registerUser( @RequestBody User user)
+    {
+		System.out.println("in register");
+		return userDetailsService.registerUser(user);
+        
+    }
     
     @PostMapping("/login")   
     public LoginResponse authenticate(@RequestBody LoginRequest request) throws Exception{

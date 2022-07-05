@@ -20,7 +20,7 @@ public class User {
     private String password;
     @Transient                                       //this column will not be created in db table
     private boolean active;
-    private String role;
+    private String role="USER";            //default role will be USER if no "role" passed in JSON Response body
 	
     public int getId() {
 		return id;

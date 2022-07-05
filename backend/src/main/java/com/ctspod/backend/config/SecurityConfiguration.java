@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import com.ctspod.backend.filter.JWTRequestFilter;
+import com.ctspod.backend.service.MyUserDetailsService;
 
 
 
@@ -21,6 +22,7 @@ import com.ctspod.backend.filter.JWTRequestFilter;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
 
 	@Autowired
     UserDetailsService userDetailsService;
@@ -46,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpsecurity) throws Exception {
 
     	httpsecurity.cors().and().csrf().disable()
-         .authorizeRequests().antMatchers("/auth/login").permitAll().
+         .authorizeRequests().antMatchers("/auth/login", "/auth/register").permitAll().
         		    antMatchers("/api/admin").hasAuthority("ADMIN").
         			anyRequest().authenticated().and().
         			exceptionHandling().and().sessionManagement()
