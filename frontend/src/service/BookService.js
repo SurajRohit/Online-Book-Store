@@ -4,7 +4,7 @@ const BOOK_API_BASE_URL = "http://localhost:4000/api";
 
 class BookService {
   saveBook(course) {
-    return axios.post(BOOK_API_BASE_URL+ "/addcourse", course);
+    return axios.post(BOOK_API_BASE_URL+ "/addbook", course, { headers: authHeader() });
   }
 
   getBooks() {

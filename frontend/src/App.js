@@ -8,6 +8,7 @@ import AuthService from "./service/auth-service";
 
 import Navbar from "./components/layout/navbar"
 import BookList from "./components/bookList";
+import AddBook from "./components/addbook";
 import Login from "./components/login";
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
       <Route  path="/"  element={< BookList />} />
       <Route  path="/booklist" element={< BookList />} />
       <Route  path="/login" element={< Login />} />
+      <Route  path="/addbook" element={< AddBook />} />
       </Routes>
       </div>
     </BrowserRouter>
