@@ -10,6 +10,7 @@ import Navbar from "./components/layout/navbar"
 import BookList from "./components/bookList";
 import AddBook from "./components/addbook";
 import Login from "./components/login";
+import Cart from "./components/cart";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -42,6 +43,7 @@ function App() {
       <Route  path="/booklist" element={< BookList />} />
       <Route  path="/login" element={< Login />} />
       <Route  path="/addbook" element={< AddBook />} />
+      <Route  path="/cart" element={< Cart name={ currentUser.username} />} />
       </Routes>
       </div>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 package com.ctspod.backend.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,6 +32,17 @@ public class BookServiceImpl implements BookService {
 	public Book getBookWithId(int id) {
 		
 		return dao.findById(id).get();
+	}
+	
+    public List<Book> getBooksWithMultipleId(List<String>ids) {
+    	List<Book>ans = new ArrayList<Book>();
+    	
+    	for(String z: ids) {
+    		int t= Integer.parseInt(z);
+    		ans.add(dao.findById(t).get());
+    	}
+		
+		return ans;
 	}
 
 	

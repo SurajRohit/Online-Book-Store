@@ -11,6 +11,10 @@ class BookService {
     return axios.get(BOOK_API_BASE_URL + "/books", { headers: authHeader() } );
   }
 
+  getBooksForCart(ids) {
+    return axios.get(BOOK_API_BASE_URL + "/getbooks/"+ ids, { headers: authHeader() } );
+  }
+
   deleteBook(id) {
     return axios.delete(BOOK_API_BASE_URL + "/delbook/" + id, { headers: authHeader() });
   }

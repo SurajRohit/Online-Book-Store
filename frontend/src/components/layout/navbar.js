@@ -23,6 +23,7 @@ function Navbar(props) {
           <div className="navbar-nav">
             <Link className="nav-item nav-link active" to="/home">Home </Link>
             <Link className="nav-item nav-link active" to="/booklist">Booklist</Link>
+            <Link className="nav-item nav-link active" to="/cart">My Cart</Link>
             {props.name=="admin"  &&
              <Link className="nav-item nav-link active" to="/addbook">New Book</Link>
             }

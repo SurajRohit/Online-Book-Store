@@ -12,6 +12,8 @@ public interface BookService {
 	 
 	 public Book getBookWithId(int id);
 	 
+	 public List<Book> getBooksWithMultipleId(List<String> ids);
+	 
 	 public List<Book> getBookWithBookName(String bookname);
 	 
 	 

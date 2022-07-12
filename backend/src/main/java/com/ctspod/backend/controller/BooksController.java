@@ -1,5 +1,6 @@
 package com.ctspod.backend.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ctspod.backend.model.Book;
 import com.ctspod.backend.service.BookService;
+import com.ctspod.backend.service.BookServiceImpl;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -25,7 +27,8 @@ import com.ctspod.backend.service.BookService;
 public class BooksController {
 	
 	@Autowired
-	private BookService cservice;
+	private BookService cservice;         
+	//private BookServiceImpl cservice;
  
 	@RequestMapping("/")                    //everyone
 	public String homeMessage() {
@@ -58,6 +61,14 @@ public class BooksController {
     {
        return cservice.getBookWithId(_id);
         
+    }
+	
+	@GetMapping("/getbooks/{bookIds}")
+    public List<Book> getBooksByIds(@PathVariable String bookIds)
+    {   List<String> ids = Arrays.asList(bookIds.split(","));
+           
+         return cservice.getBooksWithMultipleId(ids);
+      
     }
 	
 	 //search by req params  eg :(/api/books/searchbytitle?title=python)
