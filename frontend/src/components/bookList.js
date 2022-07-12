@@ -41,6 +41,8 @@ function BookList() {
    cartbooks.push({'bookId' : id});
 
    localStorage.setItem('books', JSON.stringify(cartbooks));
+
+   alert("Book added to cart")
   
   }
 
@@ -49,8 +51,7 @@ function BookList() {
         <div className='container'>
         <div className='py-4'>
           <h2>Welcome to Booklist</h2>;
-          {/* <button className='btn btn-success'><i className='fa fa-home'></i></button> */}
-          {/* <button type="button" className="btn btn-primary btn-lg"><i className='fa fa-shopping-cart'></i></button> */}
+          
           
    <table className="table table-striped">
   <thead>
