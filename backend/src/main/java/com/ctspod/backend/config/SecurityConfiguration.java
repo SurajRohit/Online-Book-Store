@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     	httpsecurity.cors().and().csrf().disable()
          .authorizeRequests().antMatchers("/auth/login", "/auth/register").permitAll().
-        		    antMatchers("/api/admin").hasAuthority("ADMIN").
+        		    antMatchers("/api/admin", "/api/addbook", "/api/updatebook/**","/api/delbook/**").hasAuthority("ADMIN").
         			anyRequest().authenticated().and().
         			exceptionHandling().and().sessionManagement()
         		    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
